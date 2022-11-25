@@ -8,6 +8,7 @@ class khachHang{
     String queQuan;
     String gioiTinh;
     String maKH;
+    long soSanh;
     void input(Scanner sc){
         hoTen = sc.nextLine();
         hoTen = chuanHoa();
@@ -76,19 +77,9 @@ public class danhsachkhachhang{
         }
         Collections.sort(sv, new Comparator<khachHang>(){
             @Override
-            public int compare(khachHang o1, khachHang o2){
-                String[] a1 = o1.ngaySinh.split("/");
-                String[] a2 = o2.ngaySinh.split("/");
-                if (Integer.parseInt(a1[2]) > Integer.parseInt(a2[2])) return 1;
-                else if(Integer.parseInt(a1[2]) < Integer.parseInt(a2[2])) return -1;
-                else{
-                    if (Integer.parseInt(a1[1]) > Integer.parseInt(a2[1])) return 1;
-                    else if(Integer.parseInt(a1[1]) < Integer.parseInt(a2[1])) return -1;
-                    else{
-                        if (Integer.parseInt(a1[0]) > Integer.parseInt(a2[0])) return 1;
-                        else return -1;
-                    }
-                }
+            public int compare(khachHang o1, khachHang o2) {
+                if (o1.soSanh > o2.soSanh) return 1;
+                return -1;
         }
         });
         for(int i=0; i<sv.size(); i++)
